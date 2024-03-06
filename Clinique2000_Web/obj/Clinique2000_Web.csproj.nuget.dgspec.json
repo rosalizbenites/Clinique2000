@@ -1,0 +1,504 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Web\\Clinique2000_Web.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Core\\Clinique2000_Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Core\\Clinique2000_Models.csproj",
+        "projectName": "Clinique2000_Models",
+        "projectPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Core\\Clinique2000_Models.csproj",
+        "packagesPath": "C:\\Users\\2228323\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\2228323\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.ViewFeatures": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.311\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_DataAccess\\Clinique2000_DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_DataAccess\\Clinique2000_DataAccess.csproj",
+        "projectName": "Clinique2000_DataAccess",
+        "projectPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_DataAccess\\Clinique2000_DataAccess.csproj",
+        "packagesPath": "C:\\Users\\2228323\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\2228323\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Core\\Clinique2000_Models.csproj": {
+                "projectPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Core\\Clinique2000_Models.csproj"
+              },
+              "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Utility\\Clinique2000_Utility.csproj": {
+                "projectPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Utility\\Clinique2000_Utility.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Bogus": {
+              "target": "Package",
+              "version": "[35.4.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.25, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.311\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Services\\Clinique2000_Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Services\\Clinique2000_Services.csproj",
+        "projectName": "Clinique2000_Services",
+        "projectPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Services\\Clinique2000_Services.csproj",
+        "packagesPath": "C:\\Users\\2228323\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\2228323\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_DataAccess\\Clinique2000_DataAccess.csproj": {
+                "projectPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_DataAccess\\Clinique2000_DataAccess.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Azure.Maps.Geolocation": {
+              "target": "Package",
+              "version": "[1.0.0-beta.2, )"
+            },
+            "Azure.Maps.Rendering": {
+              "target": "Package",
+              "version": "[1.0.0-beta.2, )"
+            },
+            "Azure.Maps.Routing": {
+              "target": "Package",
+              "version": "[1.0.0-beta.2, )"
+            },
+            "Azure.Maps.Search": {
+              "target": "Package",
+              "version": "[1.0.0-beta.4, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.311\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Utility\\Clinique2000_Utility.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Utility\\Clinique2000_Utility.csproj",
+        "projectName": "Clinique2000_Utility",
+        "projectPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Utility\\Clinique2000_Utility.csproj",
+        "packagesPath": "C:\\Users\\2228323\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Utility\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\2228323\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.4.3, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.28.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.311\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Web\\Clinique2000_Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Web\\Clinique2000_Web.csproj",
+        "projectName": "Clinique2000_Web",
+        "projectPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Web\\Clinique2000_Web.csproj",
+        "packagesPath": "C:\\Users\\2228323\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\2228323\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.311\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_DataAccess\\Clinique2000_DataAccess.csproj": {
+                "projectPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_DataAccess\\Clinique2000_DataAccess.csproj"
+              },
+              "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Services\\Clinique2000_Services.csproj": {
+                "projectPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Services\\Clinique2000_Services.csproj"
+              },
+              "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Utility\\Clinique2000_Utility.csproj": {
+                "projectPath": "C:\\Users\\2228323\\Desktop\\AP7_E03\\Clinique2000\\Clinique2000_Utility\\Clinique2000_Utility.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.25, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.311\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

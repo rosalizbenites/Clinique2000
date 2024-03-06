@@ -1,0 +1,87 @@
+@using Microsoft.AspNetCore.Identity;
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <title>@ViewData["Title"] - Clinique 2000</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css"  />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    @RenderSection("Head", required: false)
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary border-bottom box-shadow mb-3" data-bs-theme="dark">
+            <div class="container-fluid ms-5 me-5">
+                <a class="navbar-brand" asp-area="Utilisateur" asp-controller="Home" asp-action="Index">
+                    <img src="/images/Clinique 2000_v3.png" class="object-fit-contain" alt="Clinique 2000" height="75" width="auto"/>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item fs-6">
+                                <a class="nav-link" asp-area="Patient" asp-controller="Cliniques" asp-action="Recherche">Rechercher une clinique</a>
+                            </li>
+                            <li class="nav-item dropdown fs-6">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Cliniques
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="Utilisateur" asp-controller="Cliniques" asp-action="Create">Inscrire une clinique</a>
+                                    @if (User.IsInRole(Constants.CliniqueAdminRole) || User.IsInRole(Constants.AdminRole))
+                                    {
+                                        <a class="dropdown-item" asp-area="CliniqueAdmin" asp-controller="Cliniques" asp-action="GestionCliniques">G&eacuterer mes cliniques</a>
+                                    }
+                                    @if (User.IsInRole(Constants.MedecinRole) || User.IsInRole(Constants.AdminRole))
+                                    {
+                                        <a class="dropdown-item" asp-area="Medecin" asp-controller="Medecins" asp-action="VoirConsultations"> G&eacuterer mes consultations</a>
+                                    }
+                                </div>
+                            </li>
+                        }
+                        @if (User.IsInRole(Constants.CliniqueAdminRole) || User.IsInRole(Constants.AdminRole))
+                        {
+                            <li class="nav-item fs-6">
+                                <a class="nav-link" asp-area="CliniqueAdmin" asp-controller="SalleDAttente" asp-action="ChoisirClinique">Salle d'attente</a>
+                            </li>
+                        }
+                    </ul>
+                    <div class="col-2 me-5">
+                        <partial name="_LoginPartial" />
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <partial name="_Notifications" />
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - Clinique 2000 - <a class="text-decoration-none" asp-area="Utilisateur" asp-controller="Home" asp-action="Privacy">Confidentialit&eacute</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
