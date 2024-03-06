@@ -1,0 +1,18 @@
+FileDAttente (classe)
+	estOuverte
+		Peut être fait manuellement ou après certains critères
+	dateHeureInscriptions (datetime)
+		À déterminer par l'admin de la clinique
+		Restriction: [00:00 la veille - dateHeureOuverture]
+		Restriction: heure pile (ex: 20h00)
+	dateHeureOuverture (datetime)
+		À déterminer par l'admin de la clinique
+	dateHeureFermeture (datetime)
+		À déterminer par l'admin de la clinique
+	nbMedecins (int)
+	
+	
+À chaque heure, on vérifie l'état de la file d'attente afin de mettre à jour (ou pas) "estOuverte"
+Modifier la recherche de cliniques pour tenir compte des disponibilités (afficher l'heure de la prochaine rencontre, ne pas afficher une clinique non disponible)
+
+Note: fermeture et réouverture = même entité (qu'arrive-t-il aux rendez-vous?)

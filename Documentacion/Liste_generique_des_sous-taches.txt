@@ -1,0 +1,11 @@
+Analyse
+Création/Modification des Models/DbSets
+Création des Controllers
+Création des Views/ViewModels
+Création des Services
+Implémenter Identity
+Création des tests unitaires
+Exécution des tests unitaires
+Création des tests fonctionnels
+Exécution des tests fonctionnels
+Assurance Qualité (OPQUAST, standards, architecture, glossaire)
