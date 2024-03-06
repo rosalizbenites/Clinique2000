@@ -1,0 +1,123 @@
+ates de abrir el projecto con visual como admin ejecutar esto en powershell admin
+Get-ChildItem Cert:\LocalMachine\My | Where-Object { $_.Subject -match 'localhost' } | Remove-Item
+Get-ChildItem Cert:\LocalMachine\Root | Where-Object { $_.Subject -match 'localhost' } | Remove-Item
+
+ 
+
+dotnet dev-certs https --clean
+dotnet dev-certs https --trust
+////////////////////////////////
+Deploy
+  //"ConnectionStrings": {
+  //  "Clinique2000DbContext": "Server=localhost;Database=E03;Trusted_Connection=True;MultipleActiveResultSets=True"
+  //   },
+
+
+/////
+cuenta paciente
+john.doe@example.com
+Password1!
+////////////////////////
+
+
+<script src="//code.tidio.co/doov3qvjeufrs12vdbnke3xzglcwkqo5.js" async></script>
+</body>
+
+cuenta tidio 
+https://www.tidio.com/panel/bots/my-chatbots
+
+user rosaliz50@hotmail   
+password
+LhWkuw-uQ4qGuue
+////////////
+cuenta github
+
+    rosalizbenites
+password Lili10Julia01
+
+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
+
+Chat GPT
+crear keys en https://platform.openai.com/account/api-keys
+https://chat.openai.com/auth/login
+user 
+rosaliz50@hotmail.com
+password
+LhWkuw-uQ4qGuue
+key
+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
+
+Clé API créée
+Utilisez cette clé dans votre application en la transmettant avec le paramètre key=API_KEY.
+
+Votre clé API
+AIzaSyBRfRoTwM1cWM2-2gaX8ITHD30srNchnCU
+
+
+
+Client OAuth créé
+Vous pouvez toujours accéder à l'ID client et au code secret depuis la section "Identifiants" de la page "API et services"
+
+L'accès OAuth est réservé aux utilisateurs de test  listés sur votre écran d'autorisation OAuth
+ID client
+710887988173-7of1kri09563qtcnbf54n9i7g1gkf3r1.apps.googleusercontent.com
+
+
+
+fabcfabdbaafabcfabdbaafabcfabdba
+
+
+https://www.last.fm/api/
+usuario
+2228323@cegepmontpetit.ca
+Genara70!
+
+API Key: 9edad3df3e6b4a54dc2af9dbcd81d0f3
+
+Shared Secret: fa62bc9f6ab531680bb716831d2b7aa0
+fabcfabdbaafabcfabdbaafabcfabdba
+prueba 
+https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=9edad3df3e6b4a54dc2af9dbcd81d0f3&artist=Cher&album=Believe
+
+usuario para RapidAPI
+rosaliz50@hotmail.com
+pass Genara70!
+
+
+usuario para spotify
+rosaliz50@hotmail.com
+pass Genara50!
+
+
+usuario spoonacular
+2228323@cegepmontpetit.ca
+Genara70!
+
+https://rapidapi.com/malaaddincelik/api/fitness-calculator/
+https://rapidapi.com/spoonacular/api/recipe-food-nutrition  aca esta detallado 
+mi key es la misma de RapidAPI 
+5051f05d4emshcd4359cb42c6bf9p162cf1jsnda15d2f8344c
+
+"https://fitness-calculator.p.rapidapi.com/bmi?age="+this.age+"&weight="+this.poids+"&height="+this.grandeur+"&rapidapi-key="+this.key;
+https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch"acca"&rapidapi-key=5051f05d4emshcd4359cb42c6bf9p162cf1jsnda15d2f8344c
+
+Search Recipes by Ingredients
+url 
+
+
+https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,flour,sugar&number=5&ignorePantry=true&ranking=1&apiKey=48c35b4865be4d6dbdfb45a9e8c9bdaa
+
+https://api.spoonacular.com/food/ingredients/search?query=banana&number=2&sort=calories&sortDirection=desc&apiKey=48c35b4865be4d6dbdfb45a9e8c9bdaa
+
+https://jsoneditoronline.org/
+Recettes
+Ingredient Information
+Ingredient Substitutes by ID 
+
+https://low-carb-recipes.p.rapidapi.com/search?lasagna&rapidapi-key=5051f05d4emshcd4359cb42c6bf9p162cf1jsnda15d2f8344c
+
+
+
+Add-Migration Init
+update-database
+Outils -->Gestionnaires de packages Nuget -->Console
