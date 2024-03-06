@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Clinique>
+
+@{
+    ViewData["Title"] = "GestionCliniques";
+}
+
+
+<div class="d-flex justify-content-between align-items-center">
+    <h1>Gestion de cliniques</h1>
+    <a type="button" class="btn btn-outline-success" asp-area="Utilisateur" asp-controller="Cliniques" asp-action="Create">Inscrire une clinique</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courriel)
+            </th>
+            <th>
+                Heures d'ouverture
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a class="text-decoration-none" asp-area="CliniqueAdmin" asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Nom)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telephone)
+                </td>
+                <td class="text-decoration-none">
+                    @Html.DisplayFor(modelItem => item.Courriel)
+                </td>
+
+                @if (item.HeureOuverture != null && item.HeureFermeture != null)
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HeureOuverture) à @Html.DisplayFor(modelItem => item.HeureFermeture)
+                    </td>
+                }
+
+                else
+                {
+                    <td>
+                        Aucune heures d'ouvertures définies
+                    </td>
+                }
+
+                
+                <td>
+                    <a type="button" class="btn btn-outline-primary" asp-area="CliniqueAdmin" asp-action="GestionFiles" asp-route-id="@item.Id">Gérer files</a>
+                </td>
+                <td>
+                    <a type="button" class="btn btn-outline-warning" asp-area="CliniqueAdmin" asp-action="Edit" asp-route-id="@item.Id">Modifier clinique</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-danger">
+        @ViewBag.Message
+    </div>
+}

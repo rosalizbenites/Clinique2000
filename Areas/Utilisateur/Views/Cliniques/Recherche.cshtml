@@ -1,0 +1,180 @@
+@model Clinique2000_Models.ViewModels.RechercheCliniquesVM
+
+@{
+	ViewData["Title"] = "Recherche";
+}
+
+@section Head
+	{
+	<meta http-equiv="x-ua-compatible" content="IE=Edge">
+	<!-- Inclure le Azure Maps Web SDK pour cette vue sp�cifique seulement -->
+	<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css">
+	<style>
+		#sectionCarte {
+			/*padding-top: 56.25%;*/
+			padding-top: 99%;
+			position: relative;
+		}
+
+		#carte {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+		}
+	</style>
+}
+
+@*Image cach�e (ic�ne de clinique dans la carte) pour l'injection en front end dans Azure Maps*@
+<div id="divCache" style="display: none;">
+	<img src="/images/clinique-pin.svg" id="imageCachee" />
+</div>
+
+
+@if (Model.Erreur == null)
+{
+
+	<div class="row">
+		<h1>Recherche</h1>
+		@* Affichage � gauche *@
+		<div class="col-6">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							@Html.DisplayNameFor(model => model.Resultats[0].Clinique.Nom)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Resultats[0].Clinique.Adresse)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Resultats[0].Distance)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Resultats[0].HeureProchainePlagesHoraireDisponible)
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var resultat in Model.Resultats)
+					{
+						<tr>
+							<td class="text-break">
+								<a class="text-decoration-none" asp-action="Details" asp-route-id="@resultat.Clinique.Id">@resultat.Clinique.Nom</a>
+							</td>
+							<td class="text-break">
+								@resultat.Clinique.Adresse
+							</td>
+							<td>
+								@resultat.Distance.ToString("F2")&nbsp;km
+							</td>
+							<td>
+								@DateTime.Today.Add((TimeSpan)resultat.HeureProchainePlagesHoraireDisponible).ToString("hh:mm")
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+		@* Affichage � droite *@
+		<div class="col-6">
+			<section id="sectionCarte">
+				@*Afficher la carte ici*@
+				<div id="carte"></div>
+			</section>
+		</div>
+	</div>
+
+
+
+	@*Scripts pour l'affichage de la carte*@
+	<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
+	<script type="text/javascript">
+
+		@*Configuration de base de la carte*@
+			atlas.setLanguage('fr-CA');
+		atlas.setView('Auto');
+
+		var map = new atlas.Map('carte', {
+			center: [@Model.LongitudeUtilisateur, @Model.LatitudeUtilisateur],
+			zoom: 13,
+			authOptions: {
+				authType: 'subscriptionKey',
+				subscriptionKey: 'BV5AOeBWZU9njABDhnisf3zdg4ViAhY8DBWyIIc-GSw'
+			}
+		});
+
+		map.controls.add(new atlas.control.ZoomControl(), {
+			position: 'bottom-right'
+		});
+		map.controls.add(new atlas.control.PitchControl(), {
+			position: 'top-right'
+		});
+		map.controls.add(new atlas.control.CompassControl(), {
+			position: 'bottom-left'
+		});
+
+		map.events.add('ready', function () {
+
+			var imageCachee = document.getElementById("imageCachee");
+			map.imageSprite.add('clinique-pin', imageCachee).then(function () {
+
+		@*Ajout d'une source de donn�es (les cliniques)*@
+								var source = new atlas.source.DataSource();
+				map.sources.add(source);
+
+				var cliniquesData = @Html.Raw(Json.Serialize(Model.Resultats));
+				console.log(cliniquesData);
+
+				cliniquesData.forEach(function (data) {
+					console.log(data);
+					var geoJsonClinique = new atlas.data.Feature(new atlas.data.Point([data.clinique.longitude, data.clinique.latitude]), {
+						"nom": data.clinique.nom,
+						"adresse": data.clinique.adresse,
+						"telephone": data.clinique.telephone,
+						"courriel": data.clinique.courriel
+					});
+					source.add(geoJsonClinique);
+				});
+
+				console.log(source);
+				console.log(map.sources);
+
+
+		@*Cr�er un calque (layer) de symboles pour rendre des ic�nes et/ou du texte aux points sur la carte.*@
+								var layer = new atlas.layer.SymbolLayer(source);
+
+		@*Ajouter le calque (layer) � la carte.*@
+					map.layers.add(new atlas.layer.SymbolLayer(source, null, {
+						iconOptions: {
+		@*Transmetter l'ID de l'ic�ne personnalis�e qui a �t� charg�e dans les ressources de la carte.*@
+						image: 'clinique-pin',
+
+		@*Facultativement, ajuster la taille de l'ic�ne.*@
+						size: 0.035
+										},
+				textOptions: {
+				//Convertir la propri�t� de temp�rature de chaque �l�ment en une cha�ne de caract�res et concat�nez "�F".
+				textField: ['concat', ['to-string', ['get', 'nom']]],
+
+				//D�caler le texte pour qu'il apparaisse au-dessus de l'ic�ne.
+				offset: [0, -3]
+			}
+									}));
+							})});
+
+
+
+
+
+
+
+	</script>
+}
+else
+{
+	<p>
+		@Model.Erreur
+	</p>
+}

@@ -1,0 +1,72 @@
+﻿@model Clinique2000_Models.Models.Clinique
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Détails de la clinique</h1>
+
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Adresse)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Adresse)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.CodePostal)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CodePostal)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Telephone)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Telephone)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Courriel)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Courriel)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.HeureOuverture)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.HeureOuverture)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.HeureFermeture)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.HeureFermeture)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.NombreMaximumPatients)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.NombreMaximumPatients)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.DureeParConsultation)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.DureeParConsultation)
+        </dd>
+
+</div>
+<div>
+    <a type="button" class="btn btn-outline-warning" asp-area="CliniqueAdmin" asp-action="Edit" asp-route-id="@Model?.Id">Modifier</a>
+    <a type="button" class="btn btn-outline-secondary" href="javascript:history.back()">Retour</a>
+</div>

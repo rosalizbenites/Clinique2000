@@ -1,0 +1,93 @@
+﻿
+@model Clinique2000_Models.Models.Clinique
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Inscrire une clinique</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-7">
+        <form asp-action="Create" class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group py-2 col-6">
+                <label asp-for="Nom" class="control-label">Nom <span class="red-asterisk">*</span> </label>
+                <input asp-for="Nom" class="form-control" />
+                <span asp-validation-for="Nom" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2 col-6">
+                <label asp-for="Adresse" class="control-label">Adresse <span class="red-asterisk">*</span></label>
+                <input asp-for="Adresse" class="form-control" />
+                <span asp-validation-for="Adresse" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2 col-6">
+                <label asp-for="CodePostal" class="control-label">Code Postal <span class="red-asterisk">*</span></label>
+                <input asp-for="CodePostal" class="form-control" placeholder="A1B 2C3" />
+                <span asp-validation-for="CodePostal" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2 col-6">
+                <label asp-for="Telephone" class="control-label">Téléphone <span class="red-asterisk">*</span></label>
+                <input id="phoneNumberInput" type="tel" maxlength="16" asp-for="Telephone" class="form-control" placeholder="(123) 123-1234" />
+                <span asp-validation-for="Telephone" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2 col-6">
+                <label asp-for="Courriel" class="control-label">Courriel<span class="red-asterisk">*</span></label>
+                <input asp-for="Courriel" class="form-control" />
+                <span asp-validation-for="Courriel" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2 col-6">
+                <label asp-for="DureeParConsultation" class="control-label">Dur&eacutee par consultation (minutes)<span class="red-asterisk">*</span></label>
+                <input asp-for="DureeParConsultation" class="form-control" type="number" min="0" max="30" />
+                <span asp-validation-for="DureeParConsultation" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2 col-6">
+                <label asp-for="HeureOuverture" class="control-label"></label>
+                <input asp-for="HeureOuverture" class="form-control" />
+                <span asp-validation-for="HeureOuverture" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2 col-6">
+                <label asp-for="HeureFermeture" class="control-label"></label>
+                <input asp-for="HeureFermeture" class="form-control" />
+                <span asp-validation-for="HeureFermeture" class="text-danger"></span>
+            </div>
+            <div class="form-group py-2 col-6">
+                <label asp-for="NombreMaximumPatients" class="control-label">Nombre maximum de patients <span class="red-asterisk">*</span></label>
+                <input asp-for="NombreMaximumPatients" class="form-control" type="number" min="0" />
+                <span asp-validation-for="NombreMaximumPatients" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Inscrire" class="w-25 btn btn-outline-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a href="javascript:history.back()" type="button" class="btn btn-outline-secondary mt-2">Retour</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Attach the phone number formatting function to the input field
+            $('#phoneNumberInput').on('input', function () {
+                formatPhoneNumber(this);
+            });
+
+            // Function to format the phone number
+            function formatPhoneNumber(input) {
+                var phoneNumber = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+                var formattedNumber = '(' + phoneNumber.substring(0, 3) + ') ' + phoneNumber.substring(3, 6) + '-' + phoneNumber.substring(6, 10);
+                input.value = formattedNumber;
+            }
+        });
+    </script>
+}
+
