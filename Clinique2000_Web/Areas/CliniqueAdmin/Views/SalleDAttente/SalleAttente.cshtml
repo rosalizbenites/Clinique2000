@@ -1,0 +1,81 @@
+﻿@model List<PatientViewModel>
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Salle d'attente";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Clinique 2000</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-primary d-flex justify-content-center" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand mx-auto" asp-area="Utilisateur" asp-controller="Home" asp-action="Index">
+                    <img src="/images/Clinique 2000_v3.png" alt="Clinique 2000" height="80" width="auto" />
+                </a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <h1 class="mt-3 mb-3">Salle d'attente</h1>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].Prenom)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model[0].HeurePlageHoraire)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        @if (item.Prenom != "")
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Prenom) @Html.DisplayFor(modelItem => item.NomAbbrege)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.HeurePlageHoraire)
+                                </td>
+                            </tr>
+                        }
+                        
+                    }
+                </tbody>
+            </table>
+
+            @if (!string.IsNullOrEmpty(ViewBag.Message))
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.Message
+                </div>
+            }
+
+        </main>
+    </div>
+
+    <script>
+        setTimeout(function(){
+            location.reload();
+        }, 10000);
+    </script>
+</body>
+</html>

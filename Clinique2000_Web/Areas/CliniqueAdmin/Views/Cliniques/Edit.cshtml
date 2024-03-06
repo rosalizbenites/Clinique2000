@@ -1,0 +1,91 @@
+﻿@model Clinique2000_Models.Models.Clinique
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Modifier</h1>
+
+<h4>Clinique</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Nom" class="control-label"></label>
+                <input asp-for="Nom" class="form-control" />
+                <span asp-validation-for="Nom" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label asp-for="Adresse" class="control-label"></label>
+                <input asp-for="Adresse" class="form-control" />
+                <span asp-validation-for="Adresse" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label asp-for="CodePostal" class="control-label"></label>
+                <input asp-for="CodePostal" class="form-control" />
+                <span asp-validation-for="CodePostal" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label asp-for="Telephone" class="control-label"></label>
+                <input id="phoneNumberInput" type="tel" maxlength="16" asp-for="Telephone" class="form-control" />
+                <span asp-validation-for="Telephone" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label asp-for="Courriel" class="control-label"></label>
+                <input asp-for="Courriel" class="form-control" />
+                <span asp-validation-for="Courriel" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label asp-for="HeureOuverture" class="control-label"></label>
+                <input asp-for="HeureOuverture" class="form-control" />
+                <span asp-validation-for="HeureOuverture" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label asp-for="HeureFermeture" class="control-label"></label>
+                <input asp-for="HeureFermeture" class="form-control" />
+                <span asp-validation-for="HeureFermeture" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label asp-for="NombreMaximumPatients" class="control-label"></label>
+                <input asp-for="NombreMaximumPatients" class="form-control" />
+                <span asp-validation-for="NombreMaximumPatients" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label asp-for="DureeParConsultation" class="control-label"></label>
+                <input asp-for="DureeParConsultation" class="form-control" />
+                <span asp-validation-for="DureeParConsultation" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Sauvegarder" class="btn btn-outline-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="pt-2">
+    <a type="button" class="btn btn-outline-secondary" href="javascript:history.back()">Retour</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Attach the phone number formatting function to the input field
+            $('#phoneNumberInput').on('input', function () {
+                formatPhoneNumber(this);
+            });
+
+            // Function to format the phone number
+            function formatPhoneNumber(input) {
+                var phoneNumber = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+                var formattedNumber = '(' + phoneNumber.substring(0, 3) + ') ' + phoneNumber.substring(3, 6) + '-' + phoneNumber.substring(6, 10);
+                input.value = formattedNumber;
+            }
+        });
+    </script>
+}

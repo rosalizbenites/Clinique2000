@@ -1,0 +1,36 @@
+﻿@model List<Clinique>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Choisir une clinique</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Clinique
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a class="text-decoration-none" asp-area="CliniqueAdmin" asp-action="SalleAttente" asp-route-id="@item.Id">
+                        @Html.DisplayFor(modelItem => item.Nom)
+                        </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-danger">
+        @ViewBag.Message
+    </div>
+}

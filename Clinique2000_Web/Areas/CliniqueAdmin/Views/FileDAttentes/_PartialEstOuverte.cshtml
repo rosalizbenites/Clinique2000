@@ -1,0 +1,19 @@
+﻿@model Clinique2000_Models.Models.FileDAttente
+
+
+@if (DateTime.Now >= Model.DateHeureOuverture && DateTime.Now <= Model.DateHeureFermeture)
+{
+    <form asp-controller="FileDAttentes" asp-action="FermetureManuelle" method="post">
+        <input type="hidden" name="id" value="@Model.Id">
+        <button type="submit" class="mb-3 btn @(Model.EstFermeeManuellement ? "btn-success" : "btn-danger")">
+            @(Model.EstFermeeManuellement ? "Ouvrir les inscriptions" : "Fermer les inscriptions")
+        </button>
+    </form>
+}
+
+else
+{
+    <button type="button" class="btn btn-dark disabled mb-3">Ouvrir les inscriptions</button>
+}
+
+

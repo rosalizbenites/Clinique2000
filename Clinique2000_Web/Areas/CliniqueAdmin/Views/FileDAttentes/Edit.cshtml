@@ -1,0 +1,56 @@
+﻿@model Clinique2000_Models.Models.FileDAttente
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Modifier</h1>
+
+
+
+<h4>File d'attente du @Model.DateHeureInscriptions.Day @Model.DateHeureInscriptions.ToString("MMMM") @Model.DateHeureInscriptions.Year</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @await Html.PartialAsync("_PartialEstOuverte", Model)
+        <form asp-action="FermetureManuelle"></form>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="@Model.CliniqueId" />
+            <div class="form-group">
+                <label asp-for="DateHeureInscriptions" class="control-label"></label>
+                <input asp-for="DateHeureInscriptions" class="form-control" />
+                <span asp-validation-for="DateHeureInscriptions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateHeureOuverture" class="control-label"></label>
+                <input asp-for="DateHeureOuverture" class="form-control" />
+                <span asp-validation-for="DateHeureOuverture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateHeureFermeture" class="control-label"></label>
+                <input asp-for="DateHeureFermeture" class="form-control" />
+                <span asp-validation-for="DateHeureFermeture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombreMedecins" class="control-label"></label>
+                <input asp-for="NombreMedecins" class="form-control" />
+                <span asp-validation-for="NombreMedecins" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Sauvegarder" class="btn btn-outline-primary mt-3" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="pt-2">
+    <a type="button" class="btn btn-outline-secondary" href="javascript:history.back()">Retour</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

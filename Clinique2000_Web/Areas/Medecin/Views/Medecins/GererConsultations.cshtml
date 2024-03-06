@@ -1,0 +1,51 @@
+﻿@model Clinique2000_Models.ViewModels.ConsultationVM
+
+@{
+    ViewData["Title"] = "Gérer mes consultations";
+}
+
+<div class="text-center">
+    <h1><strong>Gérer mes consultations</strong></h1>
+    <hr />
+
+    <div class="text-center">
+        @if (Model != null)
+        {
+
+            <h5>Nom du patient : <strong>@(Model.Prenom + " " + Model.Nom)</strong></h5>
+            <h5>Numéro d'assurance maladie : <strong>@Model.NumeroAssuranceMaladie</strong></h5>
+            <h5>Heure prévue du RV : <strong>@Model.HeurePrevueRV.ToString("hh\\:mm")</strong></h5>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-success">Gestion de consultation</button>
+                <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                    @if (!Model.EstDerniereConsultation)
+                    {
+                        <li><a class="dropdown-item" asp-controller="Medecins" asp-action="GererEtatConsultations" asp-route-PlageHoraireId=@Model.PlageHoraireId>Terminer et passer à la prochaine consultation</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                    }
+                    
+                    
+                    <li><a class="dropdown-item" asp-controller="Medecins" asp-action="GererTerminerConsultations" asp-route-PlageHoraireId=@Model.PlageHoraireId>Terminer la consultation en cours</a></li>
+                </ul>
+            </div>
+
+        }
+        else
+        {
+            <h5>Il n'y a plus de consultation disponibles</h5>
+        }       
+
+    </div>
+
+</div>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-danger">
+        @ViewBag.Message
+    </div>
+}
